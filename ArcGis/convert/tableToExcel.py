@@ -10,10 +10,10 @@ import os
 
 arcpy.env.workspace = "C:/Users/ThinkPad/Desktop/Internship/table_set.gdb"
 pre_out_path = "C:/Users/ThinkPad/Desktop/Internship/out_excel"
-tables = arcpy.ListFiles()
+tables = arcpy.ListTables()
 print tables
 for filename in tables:
-    if filename[0:2] == "qx":
+    if filename[0:2] == "qx" and filename[2] == '2':
         year = filename[2:6]
         if os.path.exists(pre_out_path + "/" + year):
             out_xls = pre_out_path + "/" + year + "/" + filename[2:] + ".xls"
